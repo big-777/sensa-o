@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SMARTCLASS IoT</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div>
+
+            <h1>SMARTCLASS IoT</h1>
+
+            <p>
+                Sistema Inteligente de Conforto da Sala
+            </p>
+
+        </div>
+
+        <div class="conexao">
+
+            <span id="statusConexao">
+                ● Conectando...
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ========================= -->
+        <!-- CARDS DOS SENSORES -->
+        <!-- ========================= -->
+
+        <section class="sensores">
+
+            <div class="card">
+
+                <h2>Temperatura</h2>
+
+                <div class="valor"
+                     id="temperatura">
+                    -- °C
+                </div>
+
+                <div class="status"
+                     id="statusTemperatura">
+                    Aguardando
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>Umidade</h2>
+
+                <div class="valor"
+                     id="umidade">
+                    -- %
+                </div>
+
+                <div class="status"
+                     id="statusUmidade">
+                    Aguardando
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>Luminosidade</h2>
+
+                <div class="valor"
+                     id="luminosidade">
+                    --
+                </div>
+
+                <div class="status"
+                     id="statusLuz">
+                    Aguardando
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- STATUS DA SALA -->
+        <!-- ========================= -->
+
+        <section class="status-sala">
+
+            <h2>Status da sala</h2>
+
+            <div id="statusSala">
+                Aguardando dados...
+            </div>
+
+            <p>
+                Última atualização:
+                <strong id="hora">
+                    --
+                </strong>
+            </p>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- GRÁFICO TEMPERATURA -->
+        <!-- ========================= -->
+
+        <section class="grafico">
+
+            <h2>Temperatura</h2>
+
+            <canvas id="graficoTemperatura"></canvas>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- GRÁFICO UMIDADE -->
+        <!-- ========================= -->
+
+        <section class="grafico">
+
+            <h2>Umidade</h2>
+
+            <canvas id="graficoUmidade"></canvas>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- GRÁFICO LUMINOSIDADE -->
+        <!-- ========================= -->
+
+        <section class="grafico">
+
+            <h2>Luminosidade</h2>
+
+            <canvas id="graficoLuz"></canvas>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- HISTÓRICO -->
+        <!-- ========================= -->
+
+        <section class="historico">
+
+            <h2>Últimas medições</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Data/Hora</th>
+
+                        <th>Temperatura</th>
+
+                        <th>Umidade</th>
+
+                        <th>Luminosidade</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaHistorico">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        "Iot--->Gustavo_Schmitz"
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

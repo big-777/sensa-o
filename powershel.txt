@@ -1,0 +1,4 @@
+npm -y
+npm install express serialport @serialport/parser-readline
+npm install pg
+*.log

@@ -1,0 +1,44 @@
+#include <DHT.h>
+
+#define DHTPIN 2
+#define DHTTYPE DHT11
+#define LDR_PIN A0
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+
+    Serial.begin(9600);
+
+    dht.begin();
+
+    Serial.println("SMARTCLASS IoT iniciado");
+}
+
+void loop() {
+
+    float temperatura = dht.readTemperature();
+    float umidade = dht.readHumidity();
+
+    int luminosidade = analogRead(LDR_PIN);
+
+    if (isnan(temperatura) || isnan(umidade)) {
+
+        Serial.println("ERRO: Falha na leitura do DHT11");
+
+        delay(1000);
+
+        return;
+    }
+
+    Serial.print("Temperatura: ");
+    Serial.print(temperatura);
+
+    Serial.print(" °C | Umidade: ");
+    Serial.print(umidade);
+
+    Serial.print(" % | Luminosidade: ");
+    Serial.println(luminosidade);
+
+    delay(1000);
+}
