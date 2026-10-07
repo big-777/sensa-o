@@ -7,38 +7,32 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
+  Serial.begin(9600);
+  dht.begin();
 
-    Serial.begin(9600);
-
-    dht.begin();
-
-    Serial.println("SMARTCLASS IoT iniciado");
+  Serial.println("SMARTCLASS IoT iniciado");
+  Serial.println("Aguardando leituras...");
 }
 
 void loop() {
+  float temperatura = dht.readTemperature();
+  float umidade = dht.readHumidity();
+  int luminosidade = analogRead(LDR_PIN);
 
-    float temperatura = dht.readTemperature();
-    float umidade = dht.readHumidity();
+  if (isnan(temperatura) || isnan(umidade)) {
+    Serial.println("ERRO: Falha na leitura do DHT11");
+    delay(2000);
+    return;
+  }
 
-    int luminosidade = analogRead(LDR_PIN);
+  Serial.print("Temperatura: ");
+  Serial.print(temperatura, 1);
 
-    if (isnan(temperatura) || isnan(umidade)) {
+  Serial.print(" °C | Umidade: ");
+  Serial.print(umidade, 1);
 
-        Serial.println("ERRO: Falha na leitura do DHT11");
+  Serial.print(" % | Luminosidade: ");
+  Serial.println(luminosidade);
 
-        delay(1000);
-
-        return;
-    }
-
-    Serial.print("Temperatura: ");
-    Serial.print(temperatura);
-
-    Serial.print(" °C | Umidade: ");
-    Serial.print(umidade);
-
-    Serial.print(" % | Luminosidade: ");
-    Serial.println(luminosidade);
-
-    delay(1000);
+  delay(2000);
 }

@@ -38,7 +38,7 @@ app.use(express.static("public"));
 
 
 const portaArduino = new SerialPort({
-    path: "COM3",
+    path: "COM9",
     baudRate: 9600
 });
 
